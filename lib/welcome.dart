@@ -12,7 +12,7 @@ class Welcome extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'Selamat Datang',
-          style: TextStyle(fontSize: 20, color: Colors.blue),
+          style: TextStyle(fontSize: 40, color: Colors.blue),
         ),
         backgroundColor: Colors.transparent,
       ),
@@ -26,12 +26,25 @@ class Welcome extends StatelessWidget {
               color: Colors.blue,
             ),
             Text(
-              'selamat Datang ${nama}',
+              'selamat Datang',
+              style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue[600]),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              '${nama}',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             Text(
               'FLUTTER PEMULA',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+            SizedBox(
+              height: 30,
             ),
             IconButton(
               icon: Icon(
