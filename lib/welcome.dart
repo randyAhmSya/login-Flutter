@@ -29,8 +29,16 @@ class Welcome extends StatelessWidget {
               'selamat Datang ${nama}',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
+            Text(
+              'FLUTTER PEMULA',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
             IconButton(
-              icon: Icon(Icons.logout),
+              icon: Icon(
+                Icons.logout,
+                size: 30,
+                color: Colors.red[700],
+              ),
               onPressed: () {
                 Navigator.pushAndRemoveUntil(
                   context,

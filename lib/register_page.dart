@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login/login_page.dart';
+import 'package:flutter_login/models/data_user.dart';
+import 'package:flutter_login/models/model_user.dart';
 import 'package:flutter_login/welcome.dart';
 
 class LoginPage extends StatefulWidget {
@@ -39,17 +41,13 @@ class _LoginPageState extends State<LoginPage> {
     if (_formKey.currentState!.validate()) {
       String inputEmail = email.text;
       String inputPassword = password.text;
-      var pengguna = penggunaterdaftar.firstWhere(
-          (pengguna) =>
-              pengguna['email'] == inputEmail &&
-              pengguna['password'] == inputPassword,
-          orElse: () => {});
+      User? pengguna = UserData.loginUser(inputEmail, inputPassword);
 
-      if (pengguna.isNotEmpty) {
+      if (pengguna != null) {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => Welcome(nama: pengguna['name']!),
+            builder: (context) => Welcome(nama: pengguna.name),
           ),
         );
       } else {

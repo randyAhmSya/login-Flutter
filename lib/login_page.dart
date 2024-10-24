@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login/models/data_user.dart';
+import 'package:flutter_login/models/model_user.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -51,12 +53,18 @@ class _RegisterPageState extends State<RegisterPage> {
 
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
-      print('pembuatan berhasil');
-      Navigator.pop(context, {
-        'name': _nameController.text,
-        'email': _emailController.text,
-        'password': _passwordController.text
-      });
+      // Membuat objek user baru
+      User newUser = User(
+        name: _nameController.text,
+        email: _emailController.text,
+        password: _passwordController.text,
+      );
+
+      // Menambahkan user baru ke UserData
+      UserData.addUser(newUser);
+
+      // Kembali ke halaman login
+      Navigator.pop(context);
     }
   }
 
